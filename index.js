@@ -4,7 +4,7 @@ const x = require("x-ray-scraper");
 const cron = require("node-cron");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const keywords = ["airdrop", "giveaway", "air-dropping"];
+const keywords = ["airdrop", "giveaway", "air-dropping","claim","claim your free tokens","free tokens"];
 const Chan = require("./model/Chan");
 const TelegramBot = require("node-telegram-bot-api");
 
