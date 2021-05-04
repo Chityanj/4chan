@@ -12,7 +12,9 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "mongoose": "^5.12.2",
+    "node-cron": "^3.0.0",
     "node-fetch": "^2.6.1",
+    "node-telegram-bot-api": "^0.53.0",
     "x-ray-scraper": "^3.0.6"
   }
 }
