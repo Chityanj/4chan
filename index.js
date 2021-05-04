@@ -1,3 +1,5 @@
+const http = require("http");
+
 const x = require("x-ray-scraper");
 const cron = require("node-cron");
 const dotenv = require("dotenv");
@@ -102,4 +104,17 @@ bot.onText(/\/search/, (msg, match) => {
 cron.schedule("* * * * *", () => {
   sentMessage();
 });
+
+var server = http.createServer(function (req, res) {
+  res.writeHead(200, {});
+  res.end("response");
+  badLoggingCall("sent response");
+  console.log("sent response");
+});
+process.on("uncaughtException", function (e) {
+  console.log(e);
+});
+const PORT = process.env.PORT || 5000;
+server.listen(PORT);
+
 bot.on("polling_error", (err) => console.log(err));
