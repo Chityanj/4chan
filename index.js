@@ -45,6 +45,7 @@ const sentMessage = () => {
 
 bot.onText(/\/scan/, (msg, match) => {
   const chatId = msg.chat.id;
+
   x("https://boards.4channel.org/biz/", ".thread", [
     {
       postId: ".postNum.desktop > a:nth-child(2)",
@@ -63,12 +64,12 @@ bot.onText(/\/scan/, (msg, match) => {
       }
     }
   });
-  bot.sendMessage(chatId, "Sending shits");
 });
 
 bot.onText(/\/search/, (msg, match) => {
   const chatId = msg.chat.id;
   const input = match.input.split(" ")[1];
+
   if (input === undefined) {
     bot.sendMessage(
       chatId,
@@ -89,16 +90,16 @@ bot.onText(/\/search/, (msg, match) => {
     for (let i = 0; i < obj.length; i++) {
       for (let k = 0; k < keywords.length; k++) {
         if (obj[i]?.desp) {
-          if (obj[i]?.desp?.toLowerCase().indexOf(keywords[k]) !== -1) {
+          if (obj[i].desp.toLowerCase().indexOf(keywords[k]) !== -1) {
             bot.sendMessage(chatId, obj[i].link);
           }
         }
       }
     }
   });
-  bot.sendMessage(chatId, "Sending shits");
 });
 
 cron.schedule("* * * * *", () => {
   sentMessage();
 });
+bot.on("polling_error", (err) => console.log(err));
