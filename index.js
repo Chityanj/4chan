@@ -37,12 +37,19 @@ const sentMessage = (bot) => {
             const post = await Chan.findOne({ postId: obj[i].postId });
             if (post) continue;
             console.log(process.env.CHAT, obj[i].link)
-            bot.sendMessage(process.env.CHAT, obj[i].link);
+            bot.sendMessage(
+              chatId,
+              `Subject: <b>${obj[i]?.subject}</b> \n ${obj[i].link}`,
+              {
+                parse_mode: "HTML",
+              }
+            );
             await Chan.create(obj[i]);
           }
         }
       }
     }
+     bot.sendMessage(chatId,"@Prashant69 @Onkar_k @kstbh @ProPrk @Rk585 @amndngi @Cryptotion @TechyHk @lmbu2 @MRNOBODY00000000000000000000 @MaDs718 @lmbu2 @OJ_404 @justaguy30 @mandar19 @chityanj");
   });
 };
 
