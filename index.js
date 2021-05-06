@@ -49,7 +49,7 @@ const sentMessage = (bot) => {
         }
       }
     }
-     bot.sendMessage(chatId,"@Prashant69 @Onkar_k @kstbh @ProPrk @Rk585 @amndngi @Cryptotion @TechyHk @lmbu2 @MRNOBODY00000000000000000000 @MaDs718 @lmbu2 @OJ_404 @justaguy30 @mandar19 @chityanj");
+     bot.sendMessage(process.env.CHAT,"@Prashant69 @Onkar_k @kstbh @ProPrk @Rk585 @amndngi @Cryptotion @TechyHk @lmbu2 @MRNOBODY00000000000000000000 @MaDs718 @lmbu2 @OJ_404 @justaguy30 @mandar19 @chityanj");
   });
 };
 
