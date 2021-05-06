@@ -21,7 +21,7 @@ mongoose
 
 const bot = new TelegramBot(process.env.TOKEN, { polling: true });
 
-const sentMessage = () => {
+const sentMessage = (bot) => {
   x("https://boards.4channel.org/biz/", ".thread", [
     {
       postId: ".postNum.desktop > a:nth-child(2)",
@@ -102,7 +102,9 @@ bot.onText(/\/search/, (msg, match) => {
 });
 
 cron.schedule("* * * * *", () => {
-  sentMessage();
+   console.log('Running Scheduler --------------------------')
+  const bot = new TelegramBot(process.env.TOKEN, { polling: true });         
+  sentMessage(bot);
 });
 
 var server = http.createServer(function (req, res) {
