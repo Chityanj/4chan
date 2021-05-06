@@ -68,8 +68,14 @@ bot.onText(/\/scan/, (msg, match) => {
       for (let k = 0; k < keywords.length; k++) {
         if (obj[i]?.desp) {
           if (obj[i]?.desp?.toLowerCase().indexOf(keywords[k]) !== -1) {
+             bot.sendMessage(
+              chatId,
+              `Subject: <b>${obj[i]?.subject}</b> \n ${obj[i].link}`,
+              {
+                parse_mode: "HTML",
+              }
+            );
             
-            bot.sendMessage(chatId, obj[i].link);
           }
         }
       }
@@ -102,7 +108,13 @@ bot.onText(/\/search/, (msg, match) => {
       for (let k = 0; k < keywords.length; k++) {
         if (obj[i]?.desp) {
           if (obj[i].desp.toLowerCase().indexOf(keywords[k]) !== -1) {
-            bot.sendMessage(chatId, obj[i].link);
+             bot.sendMessage(
+              chatId,
+              `Subject: <b>${obj[i]?.subject}</b> \n ${obj[i].link}`,
+              {
+                parse_mode: "HTML",
+              }
+            );
           }
         }
       }
