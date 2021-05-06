@@ -38,7 +38,7 @@ const sentMessage = (bot) => {
             if (post) continue;
             console.log(process.env.CHAT, obj[i].link)
             bot.sendMessage(
-              chatId,
+              process.env.CHAT,
               `Subject: <b>${obj[i]?.subject}</b> \n ${obj[i].link}`,
               {
                 parse_mode: "HTML",
