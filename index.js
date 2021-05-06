@@ -36,6 +36,7 @@ const sentMessage = (bot) => {
           if (obj[i]?.desp?.toLowerCase().indexOf(keywords[k]) !== -1) {
             const post = await Chan.findOne({ postId: obj[i].postId });
             if (post) continue;
+            console.log(process.env.CHAT, obj[i].link)
             bot.sendMessage(process.env.CHAT, obj[i].link);
             await Chan.create(obj[i]);
           }
@@ -60,6 +61,7 @@ bot.onText(/\/scan/, (msg, match) => {
       for (let k = 0; k < keywords.length; k++) {
         if (obj[i]?.desp) {
           if (obj[i]?.desp?.toLowerCase().indexOf(keywords[k]) !== -1) {
+            
             bot.sendMessage(chatId, obj[i].link);
           }
         }
@@ -102,8 +104,7 @@ bot.onText(/\/search/, (msg, match) => {
 });
 
 cron.schedule("* * * * *", () => {
-   console.log('Running Scheduler --------------------------')
-  const bot = new TelegramBot(process.env.TOKEN, { polling: true });         
+  console.log('Running Scheduler --------------------------')         
   sentMessage(bot);
 });
 
